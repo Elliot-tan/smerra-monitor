@@ -1,14 +1,14 @@
- name: Smerra 空房监测
+name: Smerra 空房监测
 
-  on:
+on:
     schedule:
       - cron: "*/30 * * * *"
     workflow_dispatch:
 
-  permissions:
+permissions:
     contents: write
 
-  jobs:
+jobs:
     check-availability:
       runs-on: ubuntu-latest
       steps:
