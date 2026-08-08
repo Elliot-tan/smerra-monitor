@@ -1,0 +1,31 @@
+ name: Smerra 空房监测
+
+  on:
+    schedule:
+      - cron: "*/30 * * * *"
+    workflow_dispatch:
+
+  permissions:
+    contents: write
+
+  jobs:
+    check-availability:
+      runs-on: ubuntu-latest
+      steps:
+        - name: 检出代码
+          uses: actions/checkout@v4
+
+        - name: 运行空房检查
+          env:
+            NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          run: python3 check.py
+
+        - name: 提交最新状态（用于去重）
+          run: |
+            if ! git diff --quiet state.json; then
+              git config user.name "smerra-monitor-bot"
+              git config user.email "smerra-monitor-bot@users.noreply.github.com"
+              git add state.json
+              git commit -m "更新空房状态 [skip ci]"
+              git push
+            fi
