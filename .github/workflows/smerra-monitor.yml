@@ -3,7 +3,7 @@ name: Smerra 空房监测
 on:
   schedule:
     # 每 30 分钟运行一次（:00 和 :30 整点触发，GitHub 可能延迟几分钟）
-    - cron: "*/30 * * * *"
+    - cron: "5,35 * * * *"
   workflow_dispatch: # 允许在 Actions 页面手动触发测试
 
 permissions:
