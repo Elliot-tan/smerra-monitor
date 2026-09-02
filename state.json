@@ -4,13 +4,13 @@
     "rooms": [
       {
         "type": "T1",
-        "badge": "Complet",
+        "badge": "A venir",
         "disponible": false,
         "price": "522€"
       },
       {
         "type": "T1 Bis",
-        "badge": "Complet",
+        "badge": "A venir",
         "disponible": false,
         "price": "609€"
       }
