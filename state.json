@@ -21,7 +21,7 @@
     "rooms": [
       {
         "type": "T1",
-        "badge": "A venir",
+        "badge": "Complet",
         "disponible": false,
         "price": "500€"
       },
